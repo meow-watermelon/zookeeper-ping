@@ -33,7 +33,7 @@ optional arguments:
   --timeout TIMEOUT     Zookeeper client timeout value (default: 30 seconds)
   --count COUNT         Stop after sending count requests
   --znoderoot ZNODEROOT
-                        Stop after sending count requests (default: /)
+                        Parent of testing znode (default: /)
 ```
 
 ## Example
