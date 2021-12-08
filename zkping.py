@@ -142,7 +142,7 @@ if __name__ == '__main__':
     parser.add_argument('--quorum', type=str, required=True, help='Zookeeper quorum string (example: zkp1:2181,zkp2:2181,zkp3:2181)')
     parser.add_argument('--timeout', type=int, required=False, default=30, help='Zookeeper client timeout value (default: 30 seconds)')
     parser.add_argument('--count', type=int, required=False, help='Stop after sending count requests')
-    parser.add_argument('--znoderoot', type=str, required=False, default='/', help='Stop after sending count requests (default: /)')
+    parser.add_argument('--znoderoot', type=str, required=False, default='/', help='Parent of testing znode (default: /)')
     args = parser.parse_args()
 
     # register the signal handler
