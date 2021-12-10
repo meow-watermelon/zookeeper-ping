@@ -2,6 +2,7 @@
 
 import argparse
 from kazoo.client import KazooClient
+from kazoo.retry import KazooRetry
 import random
 import signal
 import string
@@ -148,9 +149,12 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
+    # set up zookeeper client retry policy
+    zk_retry = KazooRetry(max_tries=0, delay=0, backoff=0, max_delay=0, interrupt=True)
+
     # initiate zookeeper client
     try:
-        zk_client = KazooClient(hosts=args.quorum, timeout=args.timeout, connection_retry=None, command_retry=None)
+        zk_client = KazooClient(hosts=args.quorum, timeout=args.timeout, connection_retry=zk_retry, command_retry=zk_retry)
     except Exception as e:
         print('ERROR: Failed to initialize Zookeeper client: %s' %(e))
         sys.exit(2)
