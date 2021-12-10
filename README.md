@@ -13,7 +13,6 @@ argparse
 kazoo
 random
 signal
-socket
 string
 sys
 time

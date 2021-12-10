@@ -4,7 +4,6 @@ import argparse
 from kazoo.client import KazooClient
 import random
 import signal
-import socket
 import string
 import sys
 import time
